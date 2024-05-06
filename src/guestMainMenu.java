@@ -24,7 +24,7 @@ public class guestMainMenu {
 
 
         // Load the image
-        ImageIcon movieIcon1 = new ImageIcon(getClass().getResource("/images/IMG_7291.jpeg"));
+        ImageIcon movieIcon1 = new ImageIcon(getClass().getResource("/images/titanic.jpeg"));
         // Scale the image
         Image image1 = movieIcon1.getImage();
         Image scaledImage1 = image1.getScaledInstance(200, 150, Image.SCALE_SMOOTH);
@@ -34,7 +34,7 @@ public class guestMainMenu {
         label1.setIcon(scaledIcon1);
 
         // Load the image
-        ImageIcon movieIcon2 = new ImageIcon(getClass().getResource("/images/IMG_7163.jpeg"));
+        ImageIcon movieIcon2 = new ImageIcon(getClass().getResource("/images/mario_movie.jpeg"));
         // Scale the image
         Image image2 = movieIcon2.getImage();
         Image scaledImage2 = image2.getScaledInstance(200, 150, Image.SCALE_SMOOTH);
