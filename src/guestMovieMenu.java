@@ -63,6 +63,22 @@ public class guestMovieMenu {
         // Set the icon of button1 to the scaled image
         label4.setIcon(scaledIcon4);
 
+        button1.addActionListener(e -> {
+            new ticketPricing();
+        });
+
+        button2.addActionListener(e -> {
+            new ticketPricing();
+        });
+
+        button3.addActionListener(e -> {
+            new ticketPricing();
+        });
+
+        button4.addActionListener(e -> {
+            new ticketPricing();
+        });
+
     }
 
 }
