@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class guestMainMenu {
+public class guestMovieMenu {
     private JPanel panel1;
     private JButton button1;
     private JButton button2;
@@ -13,7 +13,7 @@ public class guestMainMenu {
     private JLabel label4;
 
 
-    public guestMainMenu() {
+    public guestMovieMenu() {
         JFrame frame = new JFrame("Guest Main Menu");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 600);
