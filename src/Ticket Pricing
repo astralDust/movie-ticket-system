@@ -1,43 +1,43 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
-public class MovieTicketPriceCalculator extends JFrame {
-    private JTextField adultField, childField, priceField, totalField;
+public class MovieTicketCalculator extends JFrame {
+    private JLabel adultLabel, childLabel, priceLabel, totalLabel;
+    private JTextField adultTextField, childTextField, priceTextField, totalTextField;
     private JButton calculateButton;
 
-    public MovieTicketPriceCalculator() {
-        setTitle("Movie Ticket Price Calculator");
+    public MovieTicketCalculator() {
+        setTitle("Movie Ticket Calculator");
         setSize(300, 200);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(4, 2));
-
-        JLabel adultLabel = new JLabel("Number of Adults:");
-        adultField = new JTextField(10);
-
-        JLabel childLabel = new JLabel("Number of Children:");
-        childField = new JTextField(10);
-
-        JLabel priceLabel = new JLabel("Ticket Price:");
-        priceField = new JTextField(10);
-
-        JLabel totalLabel = new JLabel("Total Price:");
-        totalField = new JTextField(10);
-        totalField.setEditable(false);
+        adultLabel = new JLabel("Number of Adults:");
+        adultTextField = new JTextField(10);
+        childLabel = new JLabel("Number of Children:");
+        childTextField = new JTextField(10);
+        priceLabel = new JLabel("Ticket Price:");
+        priceTextField = new JTextField(10);
+        totalLabel = new JLabel("Total Cost:");
+        totalTextField = new JTextField(10);
+        totalTextField.setEditable(false);
 
         calculateButton = new JButton("Calculate");
-        calculateButton.addActionListener(new CalculateListener());
+        calculateButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                calculateTotalCost();
+            }
+        });
 
+        JPanel panel = new JPanel();
         panel.add(adultLabel);
-        panel.add(adultField);
+        panel.add(adultTextField);
         panel.add(childLabel);
-        panel.add(childField);
+        panel.add(childTextField);
         panel.add(priceLabel);
-        panel.add(priceField);
+        panel.add(priceTextField);
         panel.add(totalLabel);
-        panel.add(totalField);
+        panel.add(totalTextField);
         panel.add(calculateButton);
 
         add(panel);
@@ -45,22 +45,20 @@ public class MovieTicketPriceCalculator extends JFrame {
         setVisible(true);
     }
 
-    private class CalculateListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            try {
-                int adults = Integer.parseInt(adultField.getText());
-                int children = Integer.parseInt(childField.getText());
-                double price = Double.parseDouble(priceField.getText());
+    private void calculateTotalCost() {
+        try {
+            int adults = Integer.parseInt(adultTextField.getText());
+            int children = Integer.parseInt(childTextField.getText());
+            double price = Double.parseDouble(priceTextField.getText());
 
-                double totalPrice = (adults * price) + (children * price * 0.5);
-                totalField.setText(String.format("%.2f", totalPrice));
-            } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Please enter valid numbers");
-            }
+            double totalCost = (adults * price) + (children * (price * 0.5));
+            totalTextField.setText(String.format("%.2f", totalCost));
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Please enter valid numbers.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     public static void main(String[] args) {
-        new MovieTicketPriceCalculator();
+        new MovieTicketCalculator();
     }
 }
