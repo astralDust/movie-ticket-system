@@ -1,15 +1,15 @@
 import javax.swing.*;
 import java.awt.event.*;
 
-public class MovieTicketCalculator extends JFrame {
+public class ticketPricing extends JFrame {
     private JLabel adultLabel, childLabel, priceLabel, totalLabel;
     private JTextField adultTextField, childTextField, priceTextField, totalTextField;
     private JButton calculateButton;
 
-    public MovieTicketCalculator() {
+    public ticketPricing() {
         setTitle("Movie Ticket Calculator");
         setSize(300, 200);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
         adultLabel = new JLabel("Number of Adults:");
@@ -58,7 +58,4 @@ public class MovieTicketCalculator extends JFrame {
         }
     }
 
-    public static void main(String[] args) {
-        new MovieTicketCalculator();
-    }
 }
